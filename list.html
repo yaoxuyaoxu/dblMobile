@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>2级天猫列表</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" type="text/css" href="wap_iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="wap_css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="wap_swiper/css/swiper.min.css">
+    <script src="wap_js/plug.js"></script>
+    <script src="wap_js/autoSize.js"></script>
+    <script src="wap_layer_mobile/layer.js"></script>
+    <script src="wap_iconfont/iconfont.js"></script>
+    <script src="wap_js/index.js"></script>
+    <script src="layui/layui.js"></script>
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="wap_css/index.css">
+</head>
+
+<body>
+
+  <div class="npmark">
+     
+  </div>
+  <div class="cbshaixuan">
+    <dl class="shuai-dl">
+      <dd>
+        <p><span>商品类型</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
+        <ul data-id="t">      
+            <li {if $d.s.t eq '旗舰店'} class="on"{/if}><a href="javascript:;" data-id="旗舰店">旗舰店</a> </li>
+            <li {if $d.s.t eq '专营点'} class="on"{/if}><a href="javascript:;" data-id="专营点">专营点</a> </li>
+            <li {if $d.s.t eq '专卖店'} class="on"{/if}><a href="javascript:;" data-id="专卖店">专卖店</a> </li>
+            <li {if $d.s.t eq '供销平台'} class="on"{/if}><a href="javascript:;" data-id="供销平台">供销平台</a> </li>         
+        </ul>
+      </dd>
+      <dd>
+        <p><span>商品类目</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
+        <ul data-id="c">
+            {volist name="d.class" id="v"}
+            <li {if $d.s.c eq $v.id}class="on"{/if}><a href="javascript:;" data-id="{$v.id}">{$v.name}</a></li>
+            {/volist}
+        </ul>
+      </dd>
+      <dd>
+        <p><span>商标类型</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
+        <ul data-id="te">
+          <li {if $d.s.te eq 'R标'}class="on"{/if}><a href="javascript:;" data-id="R标">R标</a> </li>
+          <li {if $d.s.te eq 'R标'}class="on"{/if}><a href="javascript:;" data-id="TM标">TM标</a> </li>
+         
+        </ul>
+      </dd>
+      <dd>
+        <p><span>价格区间</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
+        <ul data-id="p">
+            <li><a href="javascript:;" {if $d.s.p eq 'd-5'}class="on"{/if} data-id="d-5">5万以下</a></li>
+            <li><a href="javascript:;" {if $d.s.p eq '5-10'}class="on"{/if} data-id="d-5">5-10万</a></li>
+            <li><a href="javascript:;" {if $d.s.p eq '10-30'}class="on"{/if} data-id="d-5">10-30万</a></li>
+            <li><a href="javascript:;" {if $d.s.p eq '30-50'}class="on"{/if} data-id="d-5">30-50万</a></li>
+            <li><a href="javascript:;" {if $d.s.p eq 'u-50'}class="on"{/if} data-id="d-5">50万以上</a></li>
+        </ul>
+      </dd>
+       <dd>
+        <p><span>地区</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
+        <ul data-id="a">
+          {volist name="d.add" id="v"}
+          <li {if $v.id eq $d.s.a}class="on"{/if} data-id="{$v.id}"><a href="javascript:;">{$v.name}</a></li>
+          {/volist}
+        </ul>
+      </dd>
+      <dd>
+        <p><span>有无扣分</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
+        <ul data-id="dt">
+            <li {if $d.s.dt eq '1'}class="on"{/if}><a href="javacsript:;" data-id="1">有</a> </li>
+            <li {if $d.s.dt eq '2'}class="on"{/if}><a href="javacsript:;" data-id="2">无</a> </li>
+        </ul>
+      </dd>
+      <dd>
+        <p><span>是否带货</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
+        <ul data-id="b">
+            <li {if $d.s.dt eq '1'}class="on"{/if}><a href="javacsript:;">是</a> </li>
+            <li {if $d.s.dt eq '2'}class="on"{/if}><a href="javacsript:;">否</a> </li>
+         
+        </ul>
+      </dd>
+      <dd>
+        <p><span>提供货源</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
+        <ul data-id="s">
+            <li {if $d.s.s eq '1'}class="on"{/if}><a href="javascript:;" data-id="1">是</a> </li>
+            <li {if $d.s.s eq '2'}class="on"{/if}><a href="javascript:;" data-id="2">否</a> </li>
+        </ul>
+      </dd>
+    </dl>
+   
+  </div>
+    <div class="content">
+        <div class="nlisttop">
+
+           <h4>
+            <div class="inter clearfix">
+              <a href="javascript:history.back(-1)" class="sp1"><i class="iconfont icon-arrow"></i>  </a> <span class="sp2 wdtopsx">天猫商城<i class="iconfont icon-arrowll-copy"></i> </span> <span class="sp3" id="nlistsou"><i class="iconfont icon-sousuo"></i> </span> 
+                 <div class="dpleix">
+                   <div class="inter clearfix">
+                     
+                <ul>
+                    {volist name="d.pt" id="v"}
+                    <li ><a href="javascript:;" {if $d.s.d eq $v.id}class="on"{/if}><em data-id="{$v.id}">{$v.name}</em></a></li>
+                    {/volist}
+                </ul>
+              </div>
+              </div>
+           </div>
+         </h4>
+        </div>
+        <div class="nlist-shaix">
+            <a href="" class="paixu">综合排序<i class="iconfont icon-jiantou-copy"></i> </a>
+             <a href="" class="paixu">价格排序<i class="iconfont icon-jiantou-copy"></i> </a>
+              <a class="shaixuanbtn">筛选<i class="iconfont icon-shaixuan"></i></a>
+        </div>
+          <div class="inter clearfix">
+              <ul class="nplist-ul" id="intuijian">
+                
+            {volist name="list" id="a" key="s"}
+            {if $a.dp_web eq '1'}
+            <li class="good_list clearfix">
+                <div class="good_left fl">
+                    <div class="good_title">
+                        <img src="__SHOPSTATIC__image/logo_{$a.dp_web}.png" alt="{$a.title}"/>
+                        <h3 class="one-txt-cut"><a target="_blank" href="/firmshop/{$a.goods_sn}.html">{$a.title}</a></h3>
+                        <img src="__SHOPSTATIC__image/level/{$a.shop_level}.gif">
+                        {if $a.price >= '50000'}
+                        <img src="__SHOPSTATIC__image/pei_tip.png" alt="陪协助过户" title="陪协助过户">
+                        {/if}
+                        <img src="__SHOPSTATIC__image/kan_tip.png" alt="联系客服有机会免费看店" title="联系客服有机会免费看店">
+                        {if $a.isself eq '1'}
+                        <img src="__SHOPSTATIC__image/sheng_tip.png" alt="可升级过户" title="可升级过户">
+                        {else}
+                        <img src="__SHOPSTATIC__image/s_cap_30_1.png" alt="企业店铺" title="企业店铺">
+                        {/if}
+                    </div>
+                    <ul class="tip_lists clearfix tmall">
+                        <li class="tip_list tip_list01 fl">
+                            <p>主营类目</p>
+                            <h3>{$a.class_name}</h3>
+                        </li>
+                        <li class="tip_list tip_list02 fl">
+                            <p>商城类型</p>
+                            <h3>{$a.shop_type}</h3>
+                        </li>
+                        <li class="tip_list tip_list02 fl">
+                            <p>商标属性</p>
+                            <h3>{$a.trademark_attribute}</h3>
+                        </li>
+                        <li class="tip_list tip_list04 fl">
+                            <p>动态评分</p>
+                             <div class="score">
+                                <span class="score{$a.score1}"></span>
+                                <span class="score{$a.score2}"></span>
+                                <span class="score{$a.score3}"></span>
+                             </div>
+                        </li>
+                        <li class="tip_list tip_list06 fl">
+                            <p>违规扣分</p>
+                            <h3>2-0-0</h3>
+                        </li>
+                        <li class="tip_list tip_list07 fl">
+                            <p>纳税类型</p>
+                            <h3 style="width: 90px;">{if $a.taxpayer_type eq '1'}小规模{else}一般{/if}纳税人</h3>
+                        </li>
+                        <li class="tip_list tip_list08 fl">
+                            <p>消保金</p>
+                            <h3>¥{$a.bidbond}(退还)</h3>
+                        </li>
+                        <li class="tip_list tip_list05 fl">
+                            <p>技术年费</p>
+                            <h3>¥{$a.technical_services}</h3>
+                        </li>
+                    </ul>
+                    <div class="open_cata">
+                        <a target="_blank" href="/firmshop/{$a.goods_sn}.html">
+                            卖家描述：{$a.content}...<span class="view" style="color: #3089dd;">&lt;详细&gt;</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="good_left fr">
+                    <div class="good_price">
+                        <i>￥</i>
+                        <b>{$a['price']/10000|round=###,2}万</b>
+                    </div>
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=<?php echo $d['kf'][$s]['email'];?>&site=qq&menu=yes" target="'_blank'">
+                            <div class="good_contact">
+                                <img src="__SHOPSTATIC__image/qq_1.png" alt=""/>
+                                联系客服
+                            </div>
+                        </a>
+                    <div class="good_more">
+                        <a href="javascript:;" onclick="collection(this,'{$a.goods_sn}')" class="good_like" title='收藏' >
+                            <img id="{$a.goods_sn}" src="__SHOPSTATIC__image/star_1{in name="$a.goods_sn" value="$d.sc"}_on{/in}.png"> 收藏</a>
+                    </div>
+                    <div class="good_serial">编号：{$a.goods_sn}</div>
+                    <div class="good_date">{$a.time}发布</div>
+                </div>
+            </li>
+            {else}<!--非淘宝-->
+            <li class="good_list clearfix">
+              <a href="/firmshop/{$a.goods_sn}.html" target="_blank">
+                        <img src="__SHOPSTATIC__image/logo_{$a.dp_web}.png" alt="{$a.title}"/>
+                        <h5><img src="wap_image/tm.png">{$a.title}</h5>
+                        <div class="s1">
+                          <p><span>类型：</span>{$a.shop_type}</p>
+                          <p><span>商标：</span>{$a.trademark_attribute}</p>
+                        </div>
+                        <div class="s2">
+                          <p><span>类目：</span>{$a.class_name}</p>
+                          <p><span>评分：</span>$a.score1-$a.score2-$a.score3</p>
+                        </div>
+                        <div class="s3">
+                            <p>￥{$a['price']/10000|round=###,2}万</p>
+                        </div>
+                        <div class="s4">
+                            <span class="sp1">开通类目：男装 服饰配件/皮带/帽子/围...</span>
+                            <span class="sp2">陪</span>
+                        </div>
+                   
+                    
+                </div>
+                
+              </a>
+            </li>
+            {/if}
+            {/volist}
+
+                      <li>
+                          <a href="">
+                          </a>
+                      </li>  
+
+                    </ul>
+                        <div class="bomfooter">
+                    <p>明码标价 拒绝差价，真实店源</p> 
+                </div>
+          </div>
+        
+                
+    </div>
+    <footer>
+        <ul class="footer-ul">
+            <li class="on">
+                <a href="">
+            <p><i class="iconfont icon-shouye2"></i> </p>
+            <p>首页</p>
+        </a>
+            </li>
+            <li>
+                <a href="">
+            <p><i class="iconfont icon-maichu"></i> </p>
+            <p>出售</p>
+        </a>
+            </li>
+            <li>
+                <a href="">
+            <p><i class="iconfont icon-qiandaijinbi"></i> </p>
+            <p>免费估价</p>
+        </a>
+            </li>
+            <li>
+                <a href="">
+            <p><i class="iconfont icon-My"></i> </p>
+            <p>我的</p>
+        </a>
+            </li>
+        </ul>
+    </footer>
+</body>
+<script type="text/javascript">
+</script>
+
+</html>

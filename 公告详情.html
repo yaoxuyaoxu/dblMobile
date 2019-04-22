@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>公告详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" type="text/css" href="wap_iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="wap_css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="wap_swiper/css/swiper.min.css">
+    <script src="wap_js/plug.js"></script>
+    <script src="wap_js/autoSize.js"></script>
+    <script src="wap_layer_mobile/layer.js"></script>
+    <script src="wap_iconfont/iconfont.js"></script>
+    <script src="wap_js/index.js"></script>
+    <script src="layui/layui.js"></script>
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="wap_css/index.css">
+</head>
+
+<body class="">
+    <div class="content">
+        <div class="nlisttop">
+            <h4>
+            <div class="inter clearfix">
+              <a href="javascript:history.back(-1)" class="sp1"><i class="iconfont icon-arrow"></i>  </a> <span class="sp2">公告详情</span>
+                 
+           </div>
+         </h4>
+        </div>
+        <div class="ggxxdetils">
+            <h4>红旗飘扬国庆到，伯乐易店步步高</h4>
+            <p class="time"><i class=""></i> 2018-09-30 10:01:00</p>
+            <div class="con">
+                <p style="text-indent: 2em">又是一年国庆佳节，神州大地繁花似锦，祖国长空乐曲如谢，整齐的队伍，威严的官兵，先进的装备，战士的情怀，无一不是在诉说着中国的繁荣昌盛，中国的强大的凝聚力。看！那是五星红旗，那是庄严的天安门；那是万里长城，那是威严的新中国。作为一个华夏儿女，你是值 得骄傲的，作为一个跟随国家脚步进步的店伯乐员工你也是值得自豪的。</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+layui.use('flow', function() {
+    var flow = layui.flow;
+
+
+    flow.load({
+        elem: '#ggxiaoxinul',
+        // scrollElem: '#intuijian',
+        done: function(page, next) {
+
+
+            //  //页数
+            // //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+            // $.getJSON('/home/my/yuyuelist?page='+page, function(res){
+            //     if(res.status != 0){
+
+            //         json = JSON.parse(res.date);
+            //     setTimeout(function(){
+            //         var lis = [];
+            //     for (var i=0; i<json.length; i++) {
+            //         var li = "<li><a href='"+json[i].url+"'><h5><img src='"+json[i].thumb+"' />"+json[i].title;
+            //         li+= "</h5><div class='s1'><p><span>类型：</span>"+json[i].xx+"</p><p><span>商标：</span>"+json[i].xxxx+"</p>"
+            //         li+= "<div class='s2'><p><span>类目：</span>"+json[i].xx+"</p><p><span>评分：</span>"+json[i].xxxx+"</p>"
+            //         li+= " <div class='s3'>"+json[i].url+"</div>";
+            //         li+= " <div class='s4'><span class='sp1'>"+xxx.+"</span> <span class='sp2'>"+xxx+"</span></li>";
+            //         lis.push(li);
+            //     }
+
+
+
+            //         //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+            //         //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+            //        next(lis.join(''), page < res.count); 
+            //         }, 200);
+            //     }
+            // });
+
+            setTimeout(function() {
+                var lis = [];
+                var a = "你好";
+                var b = "2018-11-12 23:10:36";
+                var c = "备战双12，网店狂欢购";
+
+                for (var i = 0; i < 2; i++) {
+                    var li = "<li><a href='" + a + "'><h5>" + c + "</h5><p>" + b + "</p></a></li>";
+
+                    lis.push(li);
+                }
+
+
+
+                next(lis.join(''), page < 2);
+            }, 200);
+        }
+    });
+
+
+
+
+
+
+
+
+});
+</script>
+
+</html>
