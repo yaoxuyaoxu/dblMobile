@@ -50,8 +50,7 @@
                     <a class="qrbtn">确认</a>
                 </div>
             </div>
-          </div>
-        
+          </div>       
     </div>
 
 
@@ -65,13 +64,13 @@
                 <li>
                     <form>
                         <div class="fdiv">
-                            <input type="text" name="" placeholder="请输入手机号码">
+                            <input id="mobile" type="text" name="" placeholder="请输入手机号码">
                         </div>
                         <div class="fdiv">
-                            <input type="text" name="" placeholder="请输入验证码"><span>验证码</span>
+                            <input type="text" name="" placeholder="请输入验证码" id="YZM"><span id="CheckCode" class="CheckCodeClass">验证码</span>
                         </div>
                          <div class="fdiv">
-                            <input type="text" name="" placeholder="请输入密码">
+                            <input type="text" name="" placeholder="请输入密码" id="Psw">
                         </div>
                         <p class="de">6-16位字符/数字/大小写,空格/特殊字符无效</p>
                     </form>
@@ -79,7 +78,7 @@
                         <input type="submit" class="tijiao" name="" value="注册">
                     </div>
                  <label class="auto-login checked">
-                        <span href="javascript:void(0)"><input type="checkbox" class="change-check"><img src="wap_image/xuanze.png"> </span>
+                        <span href="javascript:void(0)"><input id="UserXieyi" type="checkbox" class="change-check"><img src="wap_image/xuanze.png"> </span>
                         <p class="inline">阅读并同意<a onclick="readProtocol()" href="javascript:void(0)">《用户协议》</a></p>
                     </label>
                 </li>
@@ -107,10 +106,42 @@
 </body>
 <script type="text/javascript">
   $(function() {
-
+$('.tijiao').click(function(){
+  if(!$('#UserXieyi').parents("label").hasClass('checked')){
+    var mobileNum = $('#mobile').val();
+    console.log(mobileNum);
+    layui.use(['layer', 'form'], function(){
+          var layer = layui.layer
+          ,form = layui.form;
+          layer.msg('请阅读并同意《用户协议》');
+        });   
+  }else if(!(/^1[345789]\d{9}$/.test(mobileNum))){
+    layui.use(['layer', 'form'], function(){
+          var layer = layui.layer
+          ,form = layui.form;
+          layer.msg('请输入正确的手机号');
+        });
+  }else if($('#YZM').val()==''){
+    layui.use(['layer', 'form'], function(){
+          var layer = layui.layer
+          ,form = layui.form;
+          layer.msg('请输入验证码');
+        });
+  }else if($('#Psw').val()==''){
+    layui.use(['layer', 'form'], function(){
+          var layer = layui.layer
+          ,form = layui.form;
+          layer.msg('请输入密码');
+        });
+  }else{
+    
+  }
+})
  $('.qrbtn').click(function() {
         $(".change-check").attr("checked", "checked");
          $(".auto-login").attr("class", "auto-login checked");
+         $('#dingjintanchu').fadeOut();
+         $('.npmark').fadeOut();
 
      });
    $(".change-check").change(function() {
@@ -123,7 +154,39 @@
     $('.npmark').show();
       animateTanchuShow("#dingjintanchu", ".dingjintanchu1");
   }
-
+  
+  $('.CheckCodeClass').click(function(){
+      var sMobile = $('#mobile').val();
+      if(!(/^1[345789]\d{9}$/.test(sMobile))){ 
+        layui.use(['layer', 'form'], function(){
+          var layer = layui.layer
+          ,form = layui.form;
+          layer.msg('请输入正确的手机号');
+        });
+         
+          // document.mobileform.mobile.focus(); 
+          return false; 
+      } 
+      sendCode( 'CheckCode', 'CheckCodeClass')
+  });
+  function sendCode(Id , YourClass){
+    var sendId = '#' + Id;
+    var sendClass =YourClass;
+    if($(sendId).hasClass(sendClass)){
+      $(sendId).removeClass(sendClass);
+      var CheckTime = '5';
+      function timeMinus(){
+        CheckTime -= 1;
+        $(sendId).html(CheckTime +'秒');
+        if(CheckTime == 0){
+          clearInterval(CountTime);
+          $(sendId).html('重新发送');
+          $(sendId).addClass(sendClass);
+        }
+      }
+      var CountTime = setInterval(timeMinus,1000);
+    }
+  }
 </script>
 
 </html>

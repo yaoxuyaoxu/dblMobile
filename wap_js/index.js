@@ -13,8 +13,6 @@ $(function() {
 
     wow.init();
 
-
-
     $(".ggnscroll").slide({
         mainCell: ".bd ul",
         autoPage: true,
@@ -23,9 +21,16 @@ $(function() {
         vis: 1,
         delayTime: 1000
     });
-
-
-
+    var onOff = 'on';
+    $('#nlistsou').click(function(){
+        if(onOff == 'on'){
+            $('.searchM').slideDown();
+            onOff = 'off';
+        }else if(onOff == 'off'){
+            $('.searchM').slideUp();
+            onOff = 'on';
+        }
+    })
      $('.bankchose').click(function() {
         $('.npmark').show();
         $('.bankcar').css('bottom',"0");
