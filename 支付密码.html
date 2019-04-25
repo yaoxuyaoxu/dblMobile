@@ -30,70 +30,136 @@
 
 
 <body class="bkf5f6fa">
-   
+
     <div class="bkf5f6fa">
-     <div class="nlisttop">
+        <div class="nlisttop">
             <h4>
-            <div class="inter clearfix">
-              <a href="javascript:history.back(-1)" class="sp1"><i class="iconfont icon-arrow"></i>  </a> <span class="sp2">登录密码</span>
-                 
-           </div>
-         </h4>
+                <div class="inter clearfix">
+                    <a href="javascript:history.back(-1)" class="sp1"><i class="iconfont icon-arrow"></i> </a> <span
+                        class="sp2">登录密码</span>
+
+                </div>
+            </h4>
         </div>
 
         <div class="aqshezhi">
             <div class="div1">
-                 <div class="inter clearfix">
-                 <dl class="aqmrdl">
-                    <dd>
-                        <div class="s1">
-                            新密码
-                        </div>
-                        <div class="s3">
-                           <input  id="start" type="text"  placeholder="请输入新密码">  
-                        </div>
-                       
-                    </dd>
-                     <dd>
-                       <div class="s1">
-                            确认密码
-                        </div>
-                       <div class="s3">
-                           <input   type="text"  placeholder="请再次输入新密码">  
-                        </div>
-                    </dd>
+                <div class="inter clearfix">
+                    <dl class="aqmrdl">
+                        <dd>
+                            <div class="s1">
+                                手机号
+                            </div>
+                            <div class="s3">
+                                <input id="mobileCheck" type="text" placeholder="请输入手机号">
+                            </div>
 
-                      <dd>
-                       <div class="s1">
-                            验证码
-                        </div>
-                       <div class="s4">
-                           <input   type="text" placeholder="请输入验证码">  
-                        </div>
-                        <div class="s5">
-                            获取验证码
-                        </div>
-                    </dd>
-                   
-                     
-                     
-                </dl>
-            </div>
-                
+                        </dd>
+                        <dd>
+                            <div class="s1">
+                                新密码
+                            </div>
+                            <div class="s3">
+                                <input id="start" type="password" placeholder="请输入新密码">
+                            </div>
+
+                        </dd>
+                        <dd>
+                            <div class="s1">
+                                确认密码
+                            </div>
+                            <div class="s3">
+                                <input id="start1" type="password" placeholder="请再次输入新密码">
+                            </div>
+                        </dd>
+
+                        <dd>
+                            <div class="s1">
+                                验证码
+                            </div>
+                            <div class="s4">
+                                <input type="text" placeholder="请输入验证码">
+                            </div>
+                            <div class="s5 yzm">
+                                获取验证码
+                            </div>
+                        </dd>
+
+
+
+                    </dl>
+                </div>
+
             </div>
 
             <div class="center">
-                <input class="qrbtn"   type="submit" value="确认">  
+                <input class="qrbtn" type="submit" value="确认">
             </div>
-        
+
 
         </div>
-       
+
     </div>
-   
 
-      
 
+
+    <script>
+        function checkMobile(){
+            var phone = $('#mobileCheck').val();
+            if( phone == ''){
+                layui.use(['layer', 'form'], function(){
+                    var layer = layui.layer
+                    ,form = layui.form;
+                    
+                    layer.msg('请输入手机号');
+                });   
+                return false;
+            }else if( !(/^1[34578]\d{9}$/.test(phone)) ){
+                layui.use(['layer', 'form'], function(){
+                    var layer = layui.layer
+                    ,form = layui.form;
+                    
+                    layer.msg('请输入正确的手机号');
+                });   
+                return false;
+            }
+        }
+        $('dd .yzm').click(function(){
+            checkMobile();
+            var Time = '5';
+            if($('.s5').hasClass('yzm')){
+                function timeout(){
+                    Time --;
+                    $('.s5').text( Time +'秒');
+                    $('.s5').removeClass('yzm');
+                    
+                    if(Time < 0){
+                        $('.s5').text('重新发送');
+                        $('.s5').addClass('yzm');
+                        clearInterval(timeCheck);
+                    }
+                }
+            }
+            var timeCheck = setInterval(timeout,1000)
+        })
+        $('.qrbtn').click(function(){
+            checkMobile();
+            if( $('#start').val() == ''){
+                layui.use(['layer', 'form'], function(){
+                    var layer = layui.layer
+                    ,form = layui.form;
+                    layer.msg('请输入新密码');
+                });  
+            }else if( $('#start').val() != $('#start1').val() ){ 
+                layui.use(['layer', 'form'], function(){
+                    var layer = layui.layer
+                    ,form = layui.form;
+                    layer.msg('密码输入的不一致');
+                });   
+                return false;
+            }
+        })
+    </script>
 
 
 </body>
