@@ -31,37 +31,34 @@
     <dl class="shuai-dl">
       <dd>
         <p><span>商品类型</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
-        <ul>
-            <li class="on"><a href="">全部</a> </li>
-            <li><a href="">旗舰店</a> </li>
-            <li><a href="">专营点</a> </li>
-            <li><a href="">专卖店</a> </li>
-            <li><a href="">供销平台</a> </li>
-         
+        <ul data-id="T">
+            <li class="on"><a href="javascript:;">全部</a> </li>
+            <li><a data-id="1" href="javascript:;">旗舰店</a> </li>
+            <li><a data-id="2" href="javascript:;">专营点</a> </li>
+            <li><a data-id="3" href="javascript:;">专卖店</a> </li>
+            <li><a data-id="4" href="javascript:;">供销平台</a> </li>
         </ul>
       </dd>
       <dd>
         <p><span>商品类目</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
-        <ul>
-            <li><a href="">数码</a> </li>
-            <li><a href="">家电</a> </li>
-           
-         
+        <ul data-id="S">
+            <li><a data-id="1" href="javascript:;">数码</a> </li>
+            <li><a data-id="2" href="javascript:;">家电</a> </li>
         </ul>
       </dd>
       <dd>
         <p><span>商标类型</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
         <ul>
-                  <li><a href="">R标</a> </li>
-            <li><a href="">R标</a> </li>
+                  <li><a href="javascript:;">R标</a> </li>
+            <li><a href="javascript:;">R标</a> </li>
          
         </ul>
       </dd>
       <dd>
         <p><span>价格区间</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
         <ul>
-            <li><a href="">1万</a> </li>
-            <li><a href="">3万</a> </li>
+            <li><a href="javascript:;">1万</a> </li>
+            <li><a href="javascript:;">3万</a> </li>
            
          
         </ul>
@@ -69,8 +66,8 @@
       <dd>
         <p><span>商标分类</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
         <ul>
-            <li><a href="">R标</a> </li>
-            <li><a href="">R标</a> </li>
+            <li><a href="javascript:;">R标</a> </li>
+            <li><a href="javascript:;">R标</a> </li>
           
          
         </ul>
@@ -78,9 +75,9 @@
        <dd>
         <p><span>地区</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
         <ul>
-            <li><a href="">成都</a> </li>
-             <li><a href="">成都</a> </li>
-              <li><a href="">成都</a> </li>
+            <li><a href="javascript:;">成都</a> </li>
+             <li><a href="javascript:;">成都</a> </li>
+              <li><a href="javascript:;">成都</a> </li>
         
          
         </ul>
@@ -88,8 +85,8 @@
        <dd>
         <p><span>动态评分</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
         <ul>
-            <li><a href="">4.8</a> </li>
-            <li><a href="">4.7</a> </li>
+            <li><a href="javascript:;">4.8</a> </li>
+            <li><a href="javascript:;">4.7</a> </li>
            
          
         </ul>
@@ -97,16 +94,16 @@
       <dd>
         <p><span>当面交易</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
         <ul>
-            <li><a href="">是</a> </li>
-            <li><a href="">否</a> </li>
+            <li><a href="javascript:;">是</a> </li>
+            <li><a href="javascript:;">否</a> </li>
          
         </ul>
       </dd>
       <dd>
         <p><span>有无扣分</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
         <ul>
-            <li><a href="">有</a> </li>
-            <li><a href="">无</a> </li>
+            <li><a href="javascript:;">有</a> </li>
+            <li><a href="javascript:;">无</a> </li>
      
          
         </ul>
@@ -114,16 +111,16 @@
       <dd>
         <p><span>是否带货</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
         <ul>
-            <li><a href="">是</a> </li>
-            <li><a href="">否</a> </li>
+            <li><a href="javascript:;">是</a> </li>
+            <li><a href="javascript:;">否</a> </li>
          
         </ul>
       </dd>
       <dd>
         <p><span>提供货源</span> <span class="sp2"><i class="iconfont icon-arrowll-copy"></i> </span> </p>
         <ul>
-            <li><a href="">是</a> </li>
-            <li><a href="">否</a> </li>
+            <li><a href="javascript:;">是</a> </li>
+            <li><a href="javascript:;">否</a> </li>
            
          
         </ul>
@@ -257,6 +254,17 @@
     </footer>
 </body>
 <script type="text/javascript">
+    var searchCnt = [];
+  $('.shuai-dl').find('a').click(function(){
+    $(this).parents("ul").find('li').removeClass('on');
+    var types =$(this).parents('ul').data('id');
+    var details = $(this).data('id');
+    searchCnt.push(types +'/' +details +'/');
+    console.log(searchCnt)
+    $(this).parent().addClass('on');
+    
+  })
+   
 </script>
 
 </html>
