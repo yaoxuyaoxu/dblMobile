@@ -254,13 +254,17 @@
     </footer>
 </body>
 <script type="text/javascript">
-    var searchCnt = [];
+    var searchCnt = {};
   $('.shuai-dl').find('a').click(function(){
     $(this).parents("ul").find('li').removeClass('on');
     var types =$(this).parents('ul').data('id');
     var details = $(this).data('id');
-    searchCnt.push(types +'/' +details +'/');
-    console.log(searchCnt)
+    searchCnt[types] =  details;
+    var searchList ='';
+    for(var Val in searchCnt){
+      searchList += Val +'/'+searchCnt[Val]+'/';
+      console.log(searchList)
+    }
     $(this).parent().addClass('on'); 
   })
    
